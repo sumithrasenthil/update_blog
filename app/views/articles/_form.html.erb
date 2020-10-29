@@ -1,0 +1,38 @@
+
+<%= form_for(@article) do |f| %>
+  <ul>
+  <% @article.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+
+<div class ="create_container">
+
+
+  <h3 class="title">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </h3>
+
+  <h3 class="body">
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </h3>
+
+  <h3 class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </h3>
+
+
+  <p class="submit_button">
+    <%= f.submit %>
+  </p>
+
+<% end %>
+</div>
+
+
+
+
+

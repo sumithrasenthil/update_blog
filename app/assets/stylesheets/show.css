@@ -1,0 +1,56 @@
+.show_article{
+    text-align: center;
+}
+
+.post_comment{
+    text-align: center;
+    color: mediumvioletred;
+}
+
+a{
+    text-decoration: none;
+    color: purple;
+    font-size: 13px;
+}
+
+.comments_by{
+    margin:10px;
+}
+
+.posted_by{
+    margin: 7px;
+}
+
+.comment{
+    color:red;
+    padding: 5px;
+    right :20%;
+}
+
+
+
+.comment_style{
+    margin:20px;
+}
+
+.submit-form{
+   
+    background: #F7F7F7;
+    padding: 25px 15px 25px 10px;
+    font: 15px ;
+    color: #888;
+    text-shadow: 1px 1px 1px #FFF;
+    border:1px solid #E4E4E4; 
+
+}
+
+.containers{
+    margin: auto;
+    
+    width: 30%;
+    height:100%;
+    border:5px solid black;
+    box-align: centre;
+    text-decoration: none;
+    padding:8px;
+}

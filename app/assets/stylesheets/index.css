@@ -1,0 +1,42 @@
+h1{
+    color: darkorchid;
+    text-align: center;
+}
+.container{
+    margin: auto;
+    
+    width: 30%;
+    height:100%;
+    border:5px solid black;
+    box-align: centre;
+    text-decoration: none;
+    padding:8px;
+}
+
+.container:hover{
+    background-color:lightgray;
+}
+
+.button{
+    
+    background-color:gray;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    padding:10px;
+    border-radius: 5px;
+    
+    position: absolute;
+    left:44%;
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    
+}
+
+.button:hover{
+    background-color: white;
+    color: black;
+    border: 12px red;
+}

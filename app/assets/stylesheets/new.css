@@ -1,0 +1,10 @@
+
+.create_container{
+    border-radius: 15px;
+    background-color: lightgray;
+    padding :20px;
+}
+
+.submit_button{
+    border-radius: 8px;
+}
