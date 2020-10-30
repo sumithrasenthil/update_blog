@@ -5,6 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
     
     has_many :articles, dependent: :destroy
-    
+  
+  validates :firstname,
+          :presence => {:message => " can't be blank." }
+
+  validates :lastname,
+  :presence => {:message => " can't be blank." }
 
 end
