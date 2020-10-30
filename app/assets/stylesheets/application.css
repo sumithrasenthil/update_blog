@@ -43,6 +43,8 @@
      margin:15px;
      border-radius: 10px;
 }
-.navbar{
+.navbar_email{
    text-align: right;
+   margin-top: 0px;
+   padding-top: 12px;
 }

@@ -7,11 +7,11 @@ h1{
     word-break: break-word;
     width: 30%;
     height:100%;
-    border:3px solid black;
+    border:2px solid black;
     box-align: centre;
     text-decoration: none;
     padding:8px;
-    border-radius: 6px;
+    border-radius: 10px;
 }
 
 .container:hover{
