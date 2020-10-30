@@ -27,9 +27,10 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article =Article.new(article_params)
-		@article.save
-		flash.notice="Article '#{@article.title}' created"
-		redirect_to article_path(@article)
+    @article.save
+    puts "#{@article.errors.full_messages}"
+    flash.notice="Article '#{@article.title}' created"
+    redirect_to article_path(@article)
   end
 
   # PATCH/PUT /articles/1

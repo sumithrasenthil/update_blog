@@ -19,10 +19,7 @@
     <%= f.text_area :body %>
   </h3>
 
-  <h3 class="field">
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </h3>
+  <%= f.hidden_field :user_id, value: current_user.id %>
 
 
   <p class="submit_button">
