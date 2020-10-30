@@ -1,10 +1,9 @@
 <h1 class="show_article"><%= @article.title %></h1>
 <div class="container">
-<h4>
-  Body :
+<h4 class="wrapper">
 <%= @article.body %></p>
 </h4>
-<h5>Published by <%= @article.user.firstname %> at<%= @article.created_at %> </h5>
+<h6 class ="published">Published by <%= @article.user.email %> at <%= @article.created_at %> </h6>
 <%= link_to "Back to Articles", articles_path %>
 .
 <%= link_to "Delete", article_path(@article), method: :delete ,data: { confirm: 'Are you sure?' }%>
@@ -20,7 +19,7 @@
 <br>
 </div>
 <div class="container">
-<h3>Comments (<%= @article.comments.size %>)</h3>
+<h4>Comments (<%= @article.comments.size %>)</h4>
 
 <%= render partial: 'articles/comment', collection: @article.comments.reverse %>
 
