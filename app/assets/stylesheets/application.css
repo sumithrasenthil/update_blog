@@ -24,6 +24,20 @@
    
    
 }
+
+.searchs{
+   margin-left: 500px;
+   padding: 7px;
+   border:none;
+
+   float:left;
+}
+
+.btn btn-primary{
+   padding-top: 8px;
+   cursor: pointer;
+   
+}
 .footer{
  position: fixed;
  left: 0;
@@ -47,4 +61,13 @@
    text-align: right;
    margin-top: 0px;
    padding-top: 12px;
+}
+label.string{
+   display: none;
+}
+div.search_title{
+   float:left;
+}
+form.simple_form{
+   float: left;
 }
