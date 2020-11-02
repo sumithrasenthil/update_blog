@@ -14,6 +14,10 @@ h1{
     border-radius: 10px;
 }
 
+.results{
+    text-align: center;
+    padding-top:2%;
+}
 .container:hover{
     background-color:lightgray;
 }

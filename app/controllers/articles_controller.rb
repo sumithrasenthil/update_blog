@@ -1,13 +1,16 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index]
 
   # GET /articles
   # GET /articles.json
   def index
     
-    
+    @articles=Article.all
     if params[:search].present?
-      @articles =Article.where("title ILIKE?", "%#{params[:search][:title]}%")
+      @articles =(Article.where('title ILIKE ?', "%#{params[:search][:title]}%")).or(Article.where('body ILIKE ?',"%#{params[:search][:title]}%"))
+    elsif params[:search].blank?
+      @articles = Article.all
     else
       @articles = Article.all
     end
