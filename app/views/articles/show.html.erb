@@ -7,7 +7,7 @@
 <%= button_to 'Like', article_likes_path(@article), method: :post %>
 <p><%= @article.likes.count %> <%= (@article.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 <%= link_to "Back to Articles", articles_path %>
-.
+
 <%= link_to "Delete", article_path(@article), method: :delete ,data: { confirm: 'Are you sure?' }%>
 .
 <%= link_to "Edit", edit_article_path(@article) %>
