@@ -31,17 +31,23 @@
 }
 
 .searchs{
-   margin-left: 500px;
+   margin-left: 500px; 
    padding: 7px;
    border:none;
 
    float:left;
 }
 
-.btn btn-primary{
-   padding-top: 8px;
-   cursor: pointer;
+span{
    
+   cursor: pointer;
+   margin: 20px;
+   margin-bottom: 50px;
+}
+button{
+     width:7px;
+     height :0px;
+     background-color : darkcyan;
 }
 .footer{
  position: fixed;

@@ -14,5 +14,19 @@ ActiveAdmin.register User do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
+  filter :articles
+  filter :id 
+  filter :email , as: :select, collection: ->{User.all}
+  filter :firstname
+  filter :lastname
+  index  do
+    column :firstname
+    column :lastname
+    column :email
+    column :id
+    
+    
+      actions
+  end
 end

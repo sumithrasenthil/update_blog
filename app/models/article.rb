@@ -7,9 +7,18 @@ class Article < ApplicationRecord
 
   validates :title,
   :presence => {:message => " can't be blank." }
+
   after_destroy :log_destroy_action
+  before_validation :normalize_name 
+
   
- 
+  private 
+  def normalize_name
+    self.title = title.titleize
+  end
+
+  
+
   def log_destroy_action
     puts 'Article destroyed'
   end

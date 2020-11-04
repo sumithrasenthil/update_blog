@@ -12,5 +12,9 @@ class User < ApplicationRecord
 
   validates :lastname,
   :presence => {:message => " can't be blank." }
+  
+  def display_name
+    self.email
+  end
 
 end

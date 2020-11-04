@@ -12,11 +12,12 @@
 
   <body>
     <div class ="header">
-
-    <div class ="searchs">
-    <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-      <%= f.input :title , input_html: {value: ""} %>   
-      <%= f.submit "Search", class: "btn btn-primary" %>
+    <% if url_for == root_path %>
+      <div class ="searchs">
+      <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+        <%= f.input :title , input_html: {value: ""} %>   
+       <button> <%= f.submit "Search", class: "btn btn-primary" %> </button>
+      <% end %> 
     <% end %>
   </div>
 

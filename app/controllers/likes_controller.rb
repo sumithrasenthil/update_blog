@@ -17,8 +17,5 @@ class LikesController < ApplicationController
         @article =Article.find(params[:article_id])
     end
 
-    def already_liked?
-        Like.where(user_id: current_user.id, article_id:
-        params[:article_id]).exists?
-      end
+    
 end

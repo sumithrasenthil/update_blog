@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index]
+  before_action :require_permission, only: [:edit, :update, :destroy]
 
   # GET /articles
   # GET /articles.json
@@ -64,6 +65,8 @@ class ArticlesController < ApplicationController
     flash.notice ="Article '#{@article.title}' Deleted"
     redirect_to articles_path
   end
+  
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -74,5 +77,13 @@ class ArticlesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def article_params
       params.require(:article).permit(:title, :body, :user_id)
+    end
+
+    def require_permission
+      if current_user != Article.find(params[:id]).user
+        flash.notice ="Not authorized user to perform action"
+        redirect_to articles_path
+        #Or do something else here
+      end
     end
 end
