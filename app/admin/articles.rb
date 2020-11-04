@@ -16,28 +16,34 @@ ActiveAdmin.register Article do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
 
-  # show do
-  #   attributes_table do
-  #     row :title
-  #     row :body
-  #     row :user
-  #     row :comments
-      
-  #   end
-  
-  # end
-
-
   show do
-    panel "Table of contents" do
-      table_for article.comments do
-        column :body
-        column :id
+    attributes_table do
+      row :title
+      row :body
+      row :user
+      table_for resource.comments do
+        column "Comments", :body
+        column :user
       end
 
+      
     end
   
   end
+
+
+  # show do
+  #   panel "Table of contents" do
+    
+  #     table_for resource.comments do
+        
+  #       column :body
+        
+  #     end
+
+  #   end
+  
+  # end
 
 
   filter :title
