@@ -42,11 +42,12 @@ class ArticlesController < ApplicationController
     @article =Article.new(article_params)
     
     if @article.save
-    
+      render json: {status: :'Success',message:'Article created',data:@article}
       flash.notice="Article '#{@article.title}' created"
-      redirect_to article_path(@article)
+      # redirect_to article_path(@article)
     else 
-      render 'new'
+      render json: {message:'Article not created',data:@article.errors,status: :unprocessable_entity}
+      # render 'new'
     end
   end
 
@@ -54,8 +55,16 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1.json
   def update
     @article.update(article_params)
-    flash.notice ="Article  '#{@article.title}' Updated "
-    redirect_to article_path(@article)
+    if(@article.errors.any?)
+      render json: {status: :'Error',message:'Article not updated',data:@article.errors ,status: :unprocessable_entity}
+    else
+      render json: {status: :'SUCCESS',message:'Article  updated',data:@article}
+      flash.notice ="Article  '#{@article.title}' Updated "
+    end
+
+    
+    
+    # redirect_to article_path(@article)
   end
 
   # DELETE /articles/1
@@ -63,7 +72,8 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     flash.notice ="Article '#{@article.title}' Deleted"
-    redirect_to articles_path
+    render json: {status:'SUCCESS',message:'Deleted Articles',data:@article}
+    # redirect_to articles_path
   end
   
   
