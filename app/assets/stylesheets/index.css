@@ -4,15 +4,20 @@ h1{
 }
 .container{
     margin: auto;
-    
+    word-break: break-word;
     width: 30%;
     height:100%;
-    border:5px solid black;
+    border:2px solid black;
     box-align: centre;
     text-decoration: none;
     padding:8px;
+    border-radius: 10px;
 }
 
+.results{
+    text-align: center;
+    padding-top:2%;
+}
 .container:hover{
     background-color:lightgray;
 }

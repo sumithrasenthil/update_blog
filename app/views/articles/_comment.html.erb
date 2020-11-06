@@ -1,8 +1,7 @@
 <div class="comment_style">
-<h4 class="comments_by">Comment by <%= comment.user.firstname %></h4>
+
 
   <p class="comment"><%= comment.body %></p>
-  <p class="posted_by">Posted <%= distance_of_time_in_words(comment.article.created_at, comment.created_at) %> later</p>
-  <br>
-  <br>
+  <h5 class="comments_by">Posted By <%=comment.user.firstname %> at <%= time_ago_in_words(comment.created_at.to_s, include_seconds: true) %> ago </h5>
+  
 </div>

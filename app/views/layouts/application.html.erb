@@ -12,8 +12,33 @@
 
   <body>
     <div class ="header">
+    <% if url_for == root_path %>
+      <div class ="searchs">
+      <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+        <%= f.input :title , input_html: {value: ""} %>   
+       <button> <%= f.submit "Search", class: "btn btn-primary" %> </button>
+      <% end %> 
+    <% end %>
+  </div>
+
+      <div class="navbar_email">
+      <% if user_signed_in? %>
+        Logged in as <strong><%= current_user.firstname %></strong>.
+        <%= link_to 'Edit profile', edit_user_registration_path(current_user), :class => 'navbar-link' %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      <% end %>
+      </div> 
+      
+      
+     
+
     </div>
     
+       
+
     <div class ="footer">
 
     </div>
