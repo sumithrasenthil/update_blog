@@ -1,7 +1,9 @@
 module Api
     module V1
         class ArticlesController < ApplicationController
+            before_action :doorkeeper_authorize!
             def index
+                
                 articles =Article.order('Created_at DESC');
                 render json: {message:'Articles',data:articles}
             end
