@@ -13,9 +13,11 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
     
-    controller do
-      skip_before_action :authorize_user!
-    end
+    
+    
+    # controller do
+    #   skip_before_action :authorize_user!
+    # end
     # Here is an example of a simple dashboard with columns and panels.
     #
     # columns do
