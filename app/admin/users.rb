@@ -7,6 +7,7 @@ ActiveAdmin.register User do
   #
   # permit_params :firstname, :lastname, :email, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at
   #
+  permit_params :firstname, :lastname, :email
   # or
   #
   # permit_params do
@@ -14,7 +15,7 @@ ActiveAdmin.register User do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-
+ 
   filter :articles
   filter :id 
   filter :email , as: :select, collection: ->{User.all}
@@ -29,4 +30,14 @@ ActiveAdmin.register User do
     
       actions
   end
+  # form do |f|
+  #   f.inputs "New Entry" do
+  #     f.input :firstname
+  #     f.input :lastname
+  #     f.input :email
+  #   end
+  #   f.actions
+  # end
+  
+
 end

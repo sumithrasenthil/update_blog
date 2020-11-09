@@ -42,12 +42,12 @@ class ArticlesController < ApplicationController
     @article =Article.new(article_params)
     
     if @article.save
-      render json: {status: :'Success',message:'Article created',data:@article}
-      flash.notice="Article '#{@article.title}' created"
-      # redirect_to article_path(@article)
+      # render json: {status: :'Success',message:'Article created',data:@article}
+      flash.notice="Article created"
+      redirect_to article_path(@article)
     else 
-      render json: {message:'Article not created',data:@article.errors,status: :unprocessable_entity}
-      # render 'new'
+      # render json: {message:'Article not created',data:@article.errors,status: :unprocessable_entity}
+      render 'new'
     end
   end
 
@@ -56,10 +56,12 @@ class ArticlesController < ApplicationController
   def update
     @article.update(article_params)
     if(@article.errors.any?)
-      render json: {status: :'Error',message:'Article not updated',data:@article.errors ,status: :unprocessable_entity}
+      render 'edit'
+      # render json: {status: :'Error',message:'Article not updated',data:@article.errors ,status: :unprocessable_entity}
     else
-      render json: {status: :'SUCCESS',message:'Article  updated',data:@article}
-      flash.notice ="Article  '#{@article.title}' Updated "
+      # render json: {status: :'SUCCESS',message:'Article  updated',data:@article}
+      redirect_to article_path(@article)
+      flash.notice ="Article Updated "
     end
 
     
@@ -71,9 +73,9 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1.json
   def destroy
     @article.destroy
-    flash.notice ="Article '#{@article.title}' Deleted"
-    render json: {status:'SUCCESS',message:'Deleted Articles',data:@article}
-    # redirect_to articles_path
+    flash.notice ="Article Deleted"
+    # render json: {status:'SUCCESS',message:'Deleted Articles',data:@article}
+    redirect_to articles_path
   end
   
   
