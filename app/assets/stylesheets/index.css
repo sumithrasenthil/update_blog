@@ -45,3 +45,25 @@ h1{
     color: black;
     border: 12px red;
 }
+
+
+.signup{
+    text-align: center;
+}
+
+/* .submit{
+    width:200px;
+} */
+
+.create_post{
+    width:100px;
+    margin-left:10px;
+    margin-top: 2px;
+    width: 70px;
+    height: 30px;
+    border-radius: 20px;
+}
+
+.createi{
+    width:70px;
+}

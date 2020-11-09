@@ -21,10 +21,14 @@
 <%= render partial: 'comments/form' %>
 <br>
 </div>
+<br>
 <div class="container">
 <h4>Comments (<%= @article.comments.size %>)</h4>
 
 <%= render partial: 'articles/comment', collection: @article.comments.reverse %>
 
-<br>
 </div>
+<br>
+<br>
+<br>
+<br>
