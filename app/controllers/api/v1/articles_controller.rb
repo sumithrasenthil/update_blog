@@ -1,7 +1,7 @@
 module Api
     module V1
         class ArticlesController < ApplicationController
-            # before_action :doorkeeper_authorize!
+            before_action :doorkeeper_authorize!
             
             skip_before_action :authenticate_user!
             protect_from_forgery with: :null_session
@@ -21,6 +21,7 @@ module Api
 
             def create
                 article =Article.new(article_params)
+                # article.user_id = 
                 if article.save
                     render json: {data:article}
                 else

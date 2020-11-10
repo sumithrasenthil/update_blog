@@ -4,6 +4,7 @@ module Api
             before_action :doorkeeper_authorize!
             skip_before_action :authenticate_user!
             protect_from_forgery with: :null_session
+            respond_to    :json
             def index
                 
                 users =User.order('Created_at DESC');

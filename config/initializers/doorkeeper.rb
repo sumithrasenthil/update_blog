@@ -5,6 +5,15 @@ Doorkeeper.configure do
   # Check the list of supported ORMs here: https://github.com/doorkeeper-gem/doorkeeper#orms
   orm :active_record
 
+  resource_owner_from_credentials do |routes|
+    user = User.find_for_database_authentication(email: params[:username])
+    if user&.valid_for_authentication? { user.valid_password?(params[:password]) } && user&.active_for_authentication?
+      request.env['warden'].set_user(user, scope: :user, store: false)
+      user
+    end
+  end
+
+  grant_flows %w[password]
   # This block will be called to check whether the resource owner is authenticated or not.
   # resource_owner_authenticator do
   #   # raise "Please configure doorkeeper resource_owner_authenticator block located in #{__FILE__}"
@@ -12,28 +21,35 @@ Doorkeeper.configure do
   #   # Example implementation:
   #   User.find_by(id: session[:user_id]) || redirect_to(new_user_session_url)
   # end
-  resource_owner_authenticator do |routes|
-    current_user || warden.authenticate!(:scope => :user)
-   end
+  # resource_owner_authenticator do |routes|
+  #   current_user || warden.authenticate!(:scope => :user)
+  #  end
 
-  # If you didn't skip applications controller from Doorkeeper routes in your application routes.rb
-  # file then you need to declare this block in order to restrict access to the web interface for
-  # adding oauth authorized applications. In other case it will return 403 Forbidden response
-  # every time somebody will try to access the admin web interface.
-  #
-  admin_authenticator do
-    # Put your admin authentication logic here.
-    # Example implementation:
-  
-   
-      
-  
+  # # If you didn't skip applications controller from Doorkeeper routes in your application routes.rb
+  # # file then you need to declare this block in order to restrict access to the web interface for
+  # # adding oauth authorized applications. In other case it will return 403 Forbidden response
+  # # every time somebody will try to access the admin web interface.
+  # #
+  admin_authenticator do |_routes|
+    current_user || warden.authenticate!(scope: :user)
   end
-  default_scopes :public
+  
+  # default_scopes :public
+
+  # # other available scopes
+  # optional_scopes :admin, :write
+
+  # default_scopes :public # if no scope was requested, this will be the default
+  # optional_scopes :admin, :write
+  # default_scopes :public
+  # optional_scopes :write
+  # enforce_configured_scopes
+  # grant_flows %w(password)
 
   # You can use your own model classes if you need to extend (or even override) default
   # Doorkeeper models such as `Application`, `AccessToken` and `AccessGrant.
-  #
+  #r
+  
   # Be default Doorkeeper ActiveRecord ORM uses it's own classes:
   #
   # access_token_class "Doorkeeper::AccessToken"
@@ -215,7 +231,7 @@ Doorkeeper.configure do
   # `grant_type` - the grant type of the request (see Doorkeeper::OAuth)
   # `scopes` - the requested scopes (see Doorkeeper::OAuth::Scopes)
   #
-  # use_refresh_token
+  use_refresh_token
 
   # Provide support for an owner to be assigned to each registered application (disabled by default)
   # Optional parameter confirmation: true (default: false) if you want to enforce ownership of
