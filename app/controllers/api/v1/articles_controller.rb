@@ -21,7 +21,8 @@ module Api
 
             def create
                 article =Article.new(article_params)
-                # article.user_id = 
+                article.user_id = doorkeeper_token[:resource_owner_id]
+                
                 if article.save
                     render json: {data:article}
                 else
@@ -48,8 +49,11 @@ module Api
             
             private
             def article_params
-                params.require(:article).permit(:title, :body, :user_id)
+                params.require(:article).permit(:title, :body)
             end
+            
+
+            
 
 
         end

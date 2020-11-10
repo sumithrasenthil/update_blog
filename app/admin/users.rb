@@ -15,6 +15,9 @@ ActiveAdmin.register User do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+
+  config.clear_action_items!
+  
  
   filter :articles
   filter :id 
@@ -27,8 +30,10 @@ ActiveAdmin.register User do
     column :email
     column :id
     
-      actions
+    actions
   end
+  
+
   # form do |f|
   #   f.inputs "New Entry" do
   #     f.input :firstname
@@ -37,6 +42,8 @@ ActiveAdmin.register User do
   #   end
   #   f.actions
   # end
-  
+  controller do
+    actions :all, :except => [:edit]
+  end
 
 end
