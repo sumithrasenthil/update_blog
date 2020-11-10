@@ -6,7 +6,7 @@ ActiveAdmin.register_page "Dashboard" do
     div class: "blank_slate_container", id: "dashboard_default_message" do
       
     end
-    section "Recent Articles" do
+    section "Articles" do
       table_for Article.limit(5) do
         column :title
         column :user

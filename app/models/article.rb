@@ -9,7 +9,7 @@ class Article < ApplicationRecord
   :presence => {:message => " can't be blank." }
 
   after_destroy :log_destroy_action
-  before_validation :normalize_name 
+  before_save :normalize_name 
 
   
   private 

@@ -12,7 +12,7 @@ module Api
             end
             def show
                 article =Article.find(params[:id])
-                render json: {status: :'SUCCESS',message:'Article',data:article}
+                render json: {status: 'SUCCESS',message:'Article',data:article}
             end
 
             def new
