@@ -6,11 +6,12 @@ FactoryBot.define do
   end
 
   
-    factory :user do
-      firstname { "respecs" }
-      email { "respecs@gmail.com" }
-      lastname { "testing" }
-      password { "123456" }
-    end
+    # factory :user do
+    #   firstname { "factorys" }
+    #   email { "factory@gmail.com" }
+    #   lastname { "bots" }
+    #   password { "123456" }
+    #   password_confirmation {"123456"}
+    # end
     
 end

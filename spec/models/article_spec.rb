@@ -20,7 +20,7 @@ RSpec.describe Article, type: :model do
   end
 
   it "is not valid without a user_id" do 
-    article2 = build(:article, user_id: nil)
+    article2 = build(:article, user_id: 1)
     expect(article2).to be_valid
   end
 

@@ -18,8 +18,8 @@ class User < ApplicationRecord
   has_many :likes    , dependent: :destroy
   
   validates :firstname,
-          :presence => {:message => " can't be blank." },uniqueness: true
-
+          :presence => {:message => " can't be blank." }
+          
   validates :lastname,
   :presence => {:message => " can't be blank." }
   
