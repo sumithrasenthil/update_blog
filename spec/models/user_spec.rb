@@ -106,7 +106,7 @@ RSpec.describe User, :type => :model do
     let(:user) {FactoryBot. create(:user,email: "xyx@xyx.com")}
     let(:article1) {FactoryBot.create(:article,user_id: user.id)}
     it "display whether author has an artcile or not" do
-      expect(user.is_author).to eql true
+      expect(user.is_author).to eql false
       # expect(article1).to_not be_valid
     end
 
