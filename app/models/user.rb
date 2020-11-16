@@ -24,8 +24,23 @@ class User < ApplicationRecord
   :presence => {:message => " can't be blank." }
   
   
-  def display_name
+  
+
+  def fullname
+    firstname + " " +lastname
+  end
+
+  def display_email
     self.email
   end
 
+  def is_author
+    article=Article.where("user_id=?",self.id)
+    # article=self.articles
+    if article.count >0
+      true
+    else
+      false
+    end
+  end
 end
