@@ -7,9 +7,10 @@ module Api
             protect_from_forgery with: :null_session
             def index
                 
-                articles =Article.order('Created_at DESC');
+                articles =Article.all
                 render json: {message:'Articles',data:articles}
             end
+
             def show
                 article =Article.find(params[:id])
                 render json: {status: 'SUCCESS',message:'Article',data:article}

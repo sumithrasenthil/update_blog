@@ -16,6 +16,9 @@ Rails.application.routes.draw do
       resources :articles,:defaults => { :format => 'json' }
       resources :users,:defaults => { :format => 'json' }
     end
+    namespace 'v2' do
+      resources :articles,:defaults => { :format => 'json' }
+    end
   end
 
    

@@ -23,7 +23,7 @@ FactoryBot.define do
     article
     body {"checking"}
     article_id {1}
-    user_id {1}
+    user_id {2}
   end
 
   factory :access_token, class: "Doorkeeper::AccessToken" do

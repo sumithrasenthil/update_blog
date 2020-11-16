@@ -89,8 +89,6 @@ RSpec.describe User, :type => :model do
           expect(user1.fullname).to eql user1.firstname + " " + user1.lastname
       end
 
-
-
   end
     
   context "display email" do
@@ -101,16 +99,16 @@ RSpec.describe User, :type => :model do
 
   end
   
-  context "user articles" do
+  # context "user articles" do
 
-    let(:user) {FactoryBot. create(:user,email: "xyx@xyx.com")}
-    let(:article1) {FactoryBot.create(:article,user_id: user.id)}
-    it "display whether author has an artcile or not" do
-      expect(user.is_author).to eql false
-      # expect(article1).to_not be_valid
-    end
+  #   let(:user) {FactoryBot. create(:user,email: "xyx@xyx.com")}
+  #   let(:article1) {FactoryBot.create(:article,user_id: user.id)}
+  #   it "display whether author has an artcile or not" do
+  #     expect(user.is_author).to eql false
+  #     # expect(article1).to_not be_valid
+  #   end
 
-  end
+  # end
 
 
 end
