@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_05_080223) do
+ActiveRecord::Schema.define(version: 2020_11_16_011617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,21 @@ ActiveRecord::Schema.define(version: 2020_11_05_080223) do
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
   end
 
+  create_table "taggings", force: :cascade do |t|
+    t.bigint "tag_id", null: false
+    t.bigint "article_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_taggings_on_article_id"
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "firstname"
     t.string "lastname"
@@ -131,4 +146,6 @@ ActiveRecord::Schema.define(version: 2020_11_05_080223) do
   add_foreign_key "likes", "users"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
+  add_foreign_key "taggings", "articles"
+  add_foreign_key "taggings", "tags"
 end

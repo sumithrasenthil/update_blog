@@ -1,4 +1,13 @@
 FactoryBot.define do
+  factory :tagging do
+    tag { nil }
+    article { nil }
+  end
+
+  factory :tag do
+    name { "MyString" }
+  end
+
   
    
   factory :article do

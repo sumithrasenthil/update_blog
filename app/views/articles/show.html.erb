@@ -3,6 +3,13 @@
 <h4 class="wrapper">
 <%= @article.body %></p>
 </h4>
+<p>
+  Tags:
+  <% @article.tags.each do |tag| %>
+    <%= link_to tag.name, tag_path(tag) %>
+  <% end %>
+</p>
+
 <h6 class ="published">Published by <%= @article.user.firstname %> at <%= @article.created_at %> </h6>
 <%= button_to 'Like', article_likes_path(@article), method: :post %>
 <p><%= @article.likes.count %> <%= (@article.likes.count) == 1 ? 'Like' : 'Likes'%></p>

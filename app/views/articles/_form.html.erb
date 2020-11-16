@@ -22,7 +22,11 @@
   </h3>
 
   <%= f.hidden_field :user_id, value: current_user.id %>
-
+  
+  <p>
+  <%= f.label :tag_list %><br />
+  <%= f.text_field :tag_list %>
+  </p>
 
   <p class="submit_button">
     <%= f.submit %>

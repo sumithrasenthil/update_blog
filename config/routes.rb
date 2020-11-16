@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :comments
     resources :likes
   end
+  resources :tags
   resources :users
   namespace 'api' do
     namespace 'v1' do
